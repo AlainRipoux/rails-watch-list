@@ -1,6 +1,6 @@
 <%= render "shared/modal" %>
 <%= link_to "Add a movie", '#',  {:remote => true, 'data-bs-toggle' =>  "modal", 'data-bs-target' => '#newbookmark', class: 'nav-link'} %>
-<%= link_to "Edit list", edit_list_path(@list) %>
+<%= link_to "Edit list", {:remote => true, 'data-bs-toggle' =>  "modal", 'data-bs-target' => '#list', class: 'nav-link'} %>
 <%= link_to "Delete",
     list_path(@list),
     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
