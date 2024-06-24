@@ -1,8 +1,25 @@
-<h1>My Lists</h1>
+<div class="container">
 
+<h1 class="text-center my-3">My Lists</h1>
+
+<div class="cards">
 <% @lists.each do |list| %>
-<div>
-  <%= link_to list.name, list_path(list) %>
-</div>
+  <%= link_to list_path(list) do %>
+
+  <% if list.photo.attached? %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>')">
+      <%= list.name %>
+    </div>
+  <% else %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.movies.first.poster_url %>)">
+      <%= list.name %>
+    </div>
+  <% end %>
+  <% end %>
+
 
 <% end %>
+
+</div>
+
+</div>

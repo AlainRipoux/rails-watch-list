@@ -11,10 +11,23 @@
   </head>
 
   <body>
-    <nav class="navbar bg-dark justify-content-between">
-      <button><%= link_to "Lists", lists_path %></button>
-      <button><%= link_to "New List", new_list_path %></button>
+      <%= render "layouts/modal" %>
+    <nav class="navbar bg-dark justify-content-between sticky-top">
+      <%= link_to "Lists", root_path, class: "btn btn-primary mx-3" %>
+      <%= link_to "New List", '#', {class: "btn btn-primary mx-3", :remote => true, 'data-bs-toggle' =>  "modal", 'data-bs-target' => '#addlist'} %>
     </nav>
     <%= yield %>
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="footer-copyright">
+        This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+      </div>
+    </footer>
   </body>
 </html>

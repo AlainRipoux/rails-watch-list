@@ -1,16 +1,26 @@
+<div class="container">
 <%= render "shared/modal" %>
-<%= link_to "Add a movie", '#',  {:remote => true, 'data-bs-toggle' =>  "modal", 'data-bs-target' => '#newbookmark', class: 'nav-link'} %>
-<%= link_to "Edit list", {:remote => true, 'data-bs-toggle' =>  "modal", 'data-bs-target' => '#list', class: 'nav-link'} %>
-<%= link_to "Delete",
+<%= link_to "Add a movie", '#',  {:remote => true, 'data-bs-toggle' =>  "modal", 'data-bs-target' => '#newbookmark'} %>
+<%= link_to "Edit list", '#',  {:remote => true, 'data-bs-toggle' =>  "modal", 'data-bs-target' => '#editlist'} %>
+<%= link_to "Delete list",
     list_path(@list),
     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
 %>
-<div class="container">
-<% @list.bookmarks.each do |bookmark| %>
-  <%= link_to bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-    <img src=<%= bookmark.movie.poster_url %> alt="<%= bookmark.movie.title %>" width="200"><br>
+<div class="cards">
+  <% @list.bookmarks.each do |bookmark| %>
+    <div class="card-trip">
+      <%= link_to bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+        <img src=<%= bookmark.movie.poster_url %> alt="<%= bookmark.movie.title %>" width="100%"><i class="fa-solid fa-xmark"></i><br>
+      <% end %>
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= bookmark.movie.title %></h2>
+          <p><%= bookmark.comment %></p>
+        </div>
+        <h2 class="card-trip-pricing"><%= bookmark.movie.rating %><i class="fa-solid fa-star"></i></h2>
+      </div>
+    </div>
   <% end %>
-  <%= bookmark.movie.title %><br>
-  <%= bookmark.comment %>
-<% end %>
+</div>
+
 </div>
