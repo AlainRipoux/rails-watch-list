@@ -51,7 +51,7 @@ gem "simple_form"
 gem "sassc-rails"
 
 gem "dotenv-rails"
-gem "cloudinary"
+gem "cloudinary", "2.0.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

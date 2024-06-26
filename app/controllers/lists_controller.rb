@@ -13,7 +13,6 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
-    @list.save
     if @list.save
       redirect_to list_path(@list)
     else
@@ -31,8 +30,10 @@ class ListsController < ApplicationController
 
   def destroy
     @list.destroy
-    redirect_to lists_path, status: :see_other
+    redirect_to root_path, status: :see_other
   end
+
+
 
   private
 

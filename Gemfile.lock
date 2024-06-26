@@ -294,7 +294,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootsnap
   bootstrap (~> 5.2)
-  cloudinary
+  cloudinary (= 2.0.2)
   debug
   dotenv-rails
   error_highlight (>= 0.4.0)
